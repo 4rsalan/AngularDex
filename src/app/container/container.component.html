@@ -1,0 +1,8 @@
+<p>{{selectedPokemon.name}}</p>
+
+<ul *ngFor="let pokemon of listOfPokemon">
+  <li>{{pokemon.name}}</li>
+</ul>
+
+//In *ngfor, generate list of cards with pokemon on them. On click open up a modal/new web page with all the pokemon information.
+//on click should call a pokemon which passes the pokemon name and uses the getPokemonByName function to retrieve all information which will be moved onto a new screen
