@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Pokemon} from '../pokemon';
 
 @Component({
   selector: 'app-display-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-card.component.css']
 })
 export class DisplayCardComponent implements OnInit {
+
+  @Input()
+  pokemon: Pokemon;
 
   constructor() { }
 

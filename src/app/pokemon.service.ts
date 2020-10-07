@@ -10,6 +10,7 @@ import {Pokemon} from './pokemon';
 export class PokemonService {
 
   private pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
+  private imageUrl = 'https://pokeres.bastionbot.org/images/pokemon/';
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +31,11 @@ export class PokemonService {
       tap(_ => console.log(`Fetched Kanto Pokemon`)),
       catchError(this.handleError<any>('getKantoPokemon'))
     );
+  }
+
+  getPokemonImage(pokemon: Pokemon): string {
+    const id = pokemon.url.split('/')[6];
+    return`${this.imageUrl}${id}.png`;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

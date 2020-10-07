@@ -7,7 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { DisplayCardComponent } from './display-card/display-card.component';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/typings/button';
+import {MatButtonModule, MatToolbarModule} from '@angular/material';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
 
 
 @NgModule({
@@ -15,13 +16,15 @@ import {MatButtonModule} from '@angular/material/typings/button';
     AppComponent,
     ContainerComponent,
     DisplayCardComponent,
+    HeaderBarComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

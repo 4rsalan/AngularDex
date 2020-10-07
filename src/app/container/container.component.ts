@@ -12,11 +12,10 @@ export class ContainerComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   listOfPokemon: Pokemon[];
+  listOfPokemonImages: string;
   selectedPokemon: Pokemon;
 
   ngOnInit() {
-    console.log('pls work');
-    this.getPokemonByName('eevee');
     this.getKantoPokemon();
     console.log(this.listOfPokemon);
   }
@@ -31,6 +30,11 @@ export class ContainerComponent implements OnInit {
       .subscribe(pokemons => {
         console.log(pokemons);
         this.listOfPokemon = pokemons.results;
+
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.listOfPokemon.length; i++) {
+          this.listOfPokemon[i].url = this.pokemonService.getPokemonImage(this.listOfPokemon[i]);
+        }
       });
   }
 
